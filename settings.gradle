@@ -1,0 +1,22 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven {
+            url "https://maven.walt.id/repository/danubetech"
+        }
+        maven {
+            url "https://repo.danubetech.com/repository/maven-public/"
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+        mavenLocal()
+    }
+}
+rootProject.name = "Android Ssikit Example"
+include ':app'
