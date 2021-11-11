@@ -2,6 +2,12 @@
 
 This repository demonstrates how to integrate the Android SSI Kit Project inside an Android Application.
 
+- Android Ported Version of the ssikit: https://github.com/Gradiant/grad-ssikit-android
+- Android Ported Version of the servicematrix: https://github.com/Gradiant/grad-servicematrix-android
+- Android Ported Version of the ssikit vclib: https://github.com/Gradiant/grad-ssikit-vclib-android
+
+- Original Walt.ID SSI Kit: https://github.com/walt-id/waltid-ssikit 
+
 ### Setup
 
 Build (Gradle) and run in **Android Studio**
