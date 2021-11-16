@@ -1,4 +1,4 @@
-# Android SSI Kit Example App
+# Android SSI Kit Example App - Reviewing
 
 This repository demonstrates how to integrate the Android SSI Kit Project inside an Android Application.
 
