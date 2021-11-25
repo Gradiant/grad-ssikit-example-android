@@ -1,7 +1,6 @@
 package com.example.androidssikitexample
 
 import id.walt.auditor.Auditor
-import id.walt.auditor.JsonSchemaPolicy
 import id.walt.auditor.SignaturePolicy
 import id.walt.custodian.Custodian
 import id.walt.model.DidMethod
@@ -9,7 +8,6 @@ import id.walt.services.did.DidService
 import id.walt.signatory.ProofConfig
 import id.walt.signatory.ProofType
 import id.walt.signatory.Signatory
-import kotlinx.coroutines.runBlocking
 
 class VerifiableCredentials {
     companion object {
@@ -29,11 +27,11 @@ class VerifiableCredentials {
             // Verify VPs, using Signature, JsonSchema and a custom policy
             val thread = Thread {
                 try {
-                    val resJson = Auditor.getService().verify(vpJson, listOf(SignaturePolicy(), JsonSchemaPolicy()))
-                    val resJwt = Auditor.getService().verify(vpJwt, listOf(SignaturePolicy(), JsonSchemaPolicy()))
+                    val resJson = Auditor.getService().verify(vpJson, listOf(SignaturePolicy()))
+                    val resJwt = Auditor.getService().verify(vpJwt, listOf(SignaturePolicy()))
 
-                    println("JSON verification result: ${resJson.overallStatus}")
-                    println("JWT verification result: ${resJwt.overallStatus}")
+                    println("JSON verification result: ${resJson.valid}")
+                    println("JWT verification result: ${resJwt.valid}")
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

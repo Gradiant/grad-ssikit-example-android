@@ -6,13 +6,16 @@ import android.widget.Button
 import android.widget.EditText
 import id.walt.servicematrix.ServiceMatrix
 import id.walt.servicematrix.utils.AndroidUtils
+import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.io.File
+import java.security.Security
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeSSIKit()
+        //adjustSecurityProviders()
         val editTextBearerToken = findViewById<EditText>(R.id.editTextBearerToken)
 
         findViewById<Button>(R.id.buttonUpdateBearerToken).setOnClickListener {
@@ -39,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         AndroidUtils.setAndroidDataDir(dataDirPath)
         AndroidUtils.setDataRoot(dataRootPath)
         ServiceMatrix(serviceMatrixProps)
+    }
+
+    private fun adjustSecurityProviders() {
+        Security.removeProvider("BC")
+        Security.insertProviderAt(BouncyCastleProvider(), 1)
     }
 
     private fun saveBearerToken(bearerToken: String) {
